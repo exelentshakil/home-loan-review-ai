@@ -58,8 +58,8 @@ def build_estimate():
     body {{
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #0f172a;
-      line-height: 1.32;
-      font-size: 9.6px;
+      line-height: 1.30;
+      font-size: 9.5px;
     }}
     .page-container {{
       display: flex;
@@ -73,8 +73,8 @@ def build_estimate():
       justify-content: space-between;
       align-items: flex-start;
       border-bottom: 2px solid #0f172a;
-      padding-bottom: 5px;
-      margin-bottom: 4px;
+      padding-bottom: 4px;
+      margin-bottom: 3px;
     }}
     .header-left {{
       max-width: 68%;
@@ -90,7 +90,7 @@ def build_estimate():
     }}
     h1 {{
       margin: 0 0 2px 0;
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: -0.02em;
@@ -99,7 +99,7 @@ def build_estimate():
     }}
     .subtitle {{
       margin: 0;
-      font-size: 8.5px;
+      font-size: 8.3px;
       color: #475569;
       font-weight: 500;
       white-space: nowrap;
@@ -108,11 +108,11 @@ def build_estimate():
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 8.4px;
-      line-height: 1.4;
+      padding: 3px 8px;
+      font-size: 8.2px;
+      line-height: 1.35;
       text-align: right;
-      min-width: 200px;
+      min-width: 220px;
       white-space: nowrap;
     }}
     .meta-card strong {{
@@ -126,19 +126,19 @@ def build_estimate():
       border-radius: 3px;
       padding: 1px 4px;
       font-weight: 700;
-      font-size: 8px;
+      font-size: 7.8px;
     }}
     .scope-block {{
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }}
     .section-header {{
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }}
     .section-title {{
-      font-size: 9.6px;
+      font-size: 9.2px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -146,14 +146,14 @@ def build_estimate():
       margin: 0;
     }}
     .section-meta {{
-      font-size: 8px;
+      font-size: 7.8px;
       color: #64748b;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }}
     .scope-table {{
       width: 100%;
       border-collapse: collapse;
-      font-size: 8.5px;
+      font-size: 8.3px;
       table-layout: fixed;
     }}
     .scope-table th {{
@@ -162,22 +162,22 @@ def build_estimate():
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      padding: 3.5px 5px;
+      padding: 3px 5px;
       border: 1px solid #cbd5e1;
       text-align: left;
-      font-size: 8px;
+      font-size: 7.8px;
     }}
     .scope-table td {{
-      padding: 3px 5px;
+      padding: 2.5px 5px;
       border: 1px solid #e2e8f0;
       vertical-align: top;
-      line-height: 1.25;
+      line-height: 1.22;
     }}
     .phase-num {{
       font-weight: 800;
       color: #0f172a;
       white-space: nowrap;
-      font-size: 8.5px;
+      font-size: 8.2px;
     }}
     .phase-0-row {{
       background: #f0fdf4;
@@ -189,7 +189,7 @@ def build_estimate():
       border: 1px solid #86efac;
       padding: 1px 3px;
       border-radius: 3px;
-      font-size: 7.5px;
+      font-size: 7.2px;
       font-weight: 800;
     }}
     .phase-name {{
@@ -199,8 +199,8 @@ def build_estimate():
     }}
     .phase-desc {{
       color: #475569;
-      font-size: 7.8px;
-      line-height: 1.25;
+      font-size: 7.6px;
+      line-height: 1.22;
     }}
     .num-col {{
       text-align: right;
@@ -212,41 +212,41 @@ def build_estimate():
       background: #0f172a;
       color: #ffffff;
       font-weight: 800;
-      font-size: 9px;
+      font-size: 8.6px;
     }}
     .total-row td {{
       border: 1px solid #0f172a;
       color: #ffffff;
-      padding: 4px 5px;
+      padding: 3.5px 5px;
     }}
     .grid-2col {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 4px;
+      gap: 5px;
+      margin-bottom: 3px;
     }}
     .card-box {{
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 4px;
-      padding: 5px 7px;
+      padding: 4px 6px;
     }}
     .card-box-title {{
-      font-size: 8.8px;
+      font-size: 8.5px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #0f172a;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       border-bottom: 1px solid #e2e8f0;
       padding-bottom: 2px;
     }}
     .milestone-item {{
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2px;
-      font-size: 8px;
-      line-height: 1.3;
+      margin-bottom: 1.5px;
+      font-size: 7.8px;
+      line-height: 1.25;
     }}
     .milestone-name {{
       color: #334155;
@@ -259,11 +259,11 @@ def build_estimate():
       white-space: nowrap;
     }}
     .guardrail-item {{
-      font-size: 7.8px;
+      font-size: 7.5px;
       color: #475569;
-      margin-bottom: 2px;
-      line-height: 1.28;
-      padding-left: 8px;
+      margin-bottom: 1.5px;
+      line-height: 1.24;
+      padding-left: 7px;
       position: relative;
     }}
     .guardrail-item::before {{
@@ -277,24 +277,24 @@ def build_estimate():
       background: #ffffff;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
-      padding: 4px 7px;
-      margin-bottom: 4px;
+      padding: 3px 6px;
+      margin-bottom: 3px;
     }}
     .terms-grid {{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
+      gap: 5px;
     }}
     .term-col {{
-      font-size: 7.8px;
-      line-height: 1.25;
+      font-size: 7.5px;
+      line-height: 1.22;
     }}
     .term-title {{
       font-weight: 800;
       color: #0f172a;
       margin-bottom: 1px;
       text-transform: uppercase;
-      font-size: 7.5px;
+      font-size: 7.2px;
       letter-spacing: 0.03em;
     }}
     .term-body {{
@@ -304,53 +304,53 @@ def build_estimate():
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 4px;
-      padding: 5px 8px;
-      margin-bottom: 4px;
+      padding: 4px 7px;
+      margin-bottom: 3px;
     }}
     .auth-title {{
-      font-size: 8.2px;
+      font-size: 8px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #0f172a;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }}
     .auth-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
     }}
     .auth-party {{
       display: flex;
       flex-direction: column;
     }}
     .auth-party-title {{
-      font-size: 8px;
+      font-size: 7.8px;
       font-weight: 700;
       color: #334155;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }}
     .auth-sign-line {{
       display: flex;
       align-items: flex-end;
-      gap: 8px;
+      gap: 6px;
       border-bottom: 1px solid #94a3b8;
       padding-bottom: 1px;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }}
     .auth-sign-field {{
       flex: 1;
       font-family: 'Brush Script MT', cursive, sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       color: #0369a1;
       line-height: 1;
-      height: 18px;
+      height: 16px;
     }}
     .auth-date-field {{
-      font-size: 8px;
+      font-size: 7.8px;
       color: #475569;
       font-family: ui-monospace, monospace;
-      width: 80px;
+      width: 75px;
       text-align: center;
     }}
     .auth-labels {{
@@ -358,7 +358,7 @@ def build_estimate():
       justify-content: space-between;
     }}
     .auth-label {{
-      font-size: 7.2px;
+      font-size: 7px;
       color: #64748b;
       text-transform: uppercase;
       letter-spacing: 0.02em;
@@ -368,23 +368,23 @@ def build_estimate():
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #cbd5e1;
-      padding-top: 4px;
+      padding-top: 3px;
     }}
     .footer-founder {{
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }}
     .founder-avatar {{
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       border: 1px solid #cbd5e1;
       object-fit: cover;
     }}
     .founder-info {{
-      font-size: 8px;
-      line-height: 1.25;
+      font-size: 7.8px;
+      line-height: 1.22;
     }}
     .founder-name {{
       color: #0f172a;
@@ -394,16 +394,16 @@ def build_estimate():
     }}
     .founder-sub {{
       color: #64748b;
-      font-size: 7.5px;
+      font-size: 7.2px;
     }}
     .footer-brand {{
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 2px;
+      gap: 1.5px;
     }}
     .business-logo {{
-      height: 16px;
+      height: 15px;
       width: auto;
       object-fit: contain;
     }}
@@ -411,9 +411,9 @@ def build_estimate():
       display: inline-block;
       background: #0f172a;
       color: #ffffff;
-      padding: 1.5px 5px;
+      padding: 1px 4px;
       border-radius: 3px;
-      font-size: 7.5px;
+      font-size: 7.2px;
       font-family: ui-monospace, monospace;
       font-weight: 700;
       text-decoration: none;
@@ -433,8 +433,8 @@ def build_estimate():
     </div>
     <div class="meta-card">
       <div><strong>Client:</strong> Australian Finance &amp; Mortgage Firm</div>
-      <div><strong>Target Engagement:</strong> $38.00/hr (Turnkey: $2,204.00)</div>
-      <div><strong>Timeline:</strong> 3–4 Weeks (58 Hours Scope)</div>
+      <div><strong>Profile Flagship:</strong> $80.00/hr (Turnkey: $4,640.00)</div>
+      <div><strong>Flexible Tiers:</strong> $55.00/hr ($3,190) • $38.00/hr ($2,204)</div>
       <div><strong>Live Prototype:</strong> <span class="live-badge">Verified &amp; Operational</span></div>
     </div>
   </div>
@@ -448,11 +448,12 @@ def build_estimate():
     <table class="scope-table">
       <thead>
         <tr>
-          <th style="width: 12%;">Milestone</th>
-          <th style="width: 58%;">Architecture &amp; Production Engineering Deliverables</th>
-          <th style="width: 10%; text-align: right;">Timeline</th>
-          <th style="width: 8%; text-align: right;">Share</th>
-          <th style="width: 12%; text-align: right;">Investment</th>
+          <th style="width: 11%;">Milestone</th>
+          <th style="width: 53%;">Architecture &amp; Production Engineering Deliverables</th>
+          <th style="width: 9%; text-align: right;">Timeline</th>
+          <th style="width: 7%; text-align: right;">Share</th>
+          <th style="width: 10%; text-align: right;">@ $80/hr</th>
+          <th style="width: 10%; text-align: right;">@ $55/hr</th>
         </tr>
       </thead>
       <tbody>
@@ -465,6 +466,7 @@ def build_estimate():
           <td class="num-col">Delivered</td>
           <td class="num-col">0%</td>
           <td class="num-col" style="color: #16a34a;">$0.00</td>
+          <td class="num-col" style="color: #16a34a;">$0.00</td>
         </tr>
         <tr>
           <td class="phase-num">Milestone 1</td>
@@ -474,7 +476,8 @@ def build_estimate():
           </td>
           <td class="num-col">14 hrs</td>
           <td class="num-col">24%</td>
-          <td class="num-col">$532.00</td>
+          <td class="num-col">$1,120.00</td>
+          <td class="num-col">$770.00</td>
         </tr>
         <tr>
           <td class="phase-num">Milestone 2</td>
@@ -484,7 +487,8 @@ def build_estimate():
           </td>
           <td class="num-col">11 hrs</td>
           <td class="num-col">19%</td>
-          <td class="num-col">$418.00</td>
+          <td class="num-col">$880.00</td>
+          <td class="num-col">$605.00</td>
         </tr>
         <tr>
           <td class="phase-num">Milestone 3</td>
@@ -494,7 +498,8 @@ def build_estimate():
           </td>
           <td class="num-col">10 hrs</td>
           <td class="num-col">17%</td>
-          <td class="num-col">$380.00</td>
+          <td class="num-col">$800.00</td>
+          <td class="num-col">$550.00</td>
         </tr>
         <tr>
           <td class="phase-num">Milestone 4</td>
@@ -504,7 +509,8 @@ def build_estimate():
           </td>
           <td class="num-col">12 hrs</td>
           <td class="num-col">21%</td>
-          <td class="num-col">$456.00</td>
+          <td class="num-col">$960.00</td>
+          <td class="num-col">$660.00</td>
         </tr>
         <tr>
           <td class="phase-num">Milestone 5</td>
@@ -514,13 +520,15 @@ def build_estimate():
           </td>
           <td class="num-col">11 hrs</td>
           <td class="num-col">19%</td>
-          <td class="num-col">$418.00</td>
+          <td class="num-col">$880.00</td>
+          <td class="num-col">$605.00</td>
         </tr>
         <tr class="total-row">
           <td colspan="2" style="font-weight: 800; text-transform: uppercase;">Total Turnkey Engineering Package (Full Scope &amp; Handover)</td>
           <td class="num-col" style="color: #ffffff;">58 hrs</td>
           <td class="num-col" style="color: #ffffff;">100%</td>
-          <td class="num-col" style="color: #ffffff;">$2,204.00</td>
+          <td class="num-col" style="color: #ffffff;">$4,640.00</td>
+          <td class="num-col" style="color: #ffffff;">$3,190.00</td>
         </tr>
       </tbody>
     </table>
@@ -536,23 +544,23 @@ def build_estimate():
       </div>
       <div class="milestone-item">
         <span class="milestone-name">M1: Rasa Dialogue State Machine &amp; NLU Pipeline</span>
-        <span class="milestone-val">$532.00 (Net 4 Days)</span>
+        <span class="milestone-val">$1,120.00 / $770.00 (Net 4 Days)</span>
       </div>
       <div class="milestone-item">
         <span class="milestone-name">M2: Mortgage Review Engine &amp; Savings Delta</span>
-        <span class="milestone-val">$418.00 (Net 8 Days)</span>
+        <span class="milestone-val">$880.00 / $605.00 (Net 8 Days)</span>
       </div>
       <div class="milestone-item">
         <span class="milestone-name">M3: Broker Calendar Booking Orchestrator</span>
-        <span class="milestone-val">$380.00 (Net 11 Days)</span>
+        <span class="milestone-val">$800.00 / $550.00 (Net 11 Days)</span>
       </div>
       <div class="milestone-item">
         <span class="milestone-name">M4: Broker CRM Synchronizer &amp; Fact-Find Export</span>
-        <span class="milestone-val">$456.00 (Net 15 Days)</span>
+        <span class="milestone-val">$960.00 / $660.00 (Net 15 Days)</span>
       </div>
       <div class="milestone-item">
         <span class="milestone-name">M5: Reactivation Automator &amp; 30-Day Hypercare</span>
-        <span class="milestone-val">$418.00 (Net 18 Days)</span>
+        <span class="milestone-val">$880.00 / $605.00 (Net 18 Days)</span>
       </div>
     </div>
     <div class="card-box">
@@ -569,8 +577,8 @@ def build_estimate():
   <div class="terms-box">
     <div class="terms-grid">
       <div class="term-col">
-        <div class="term-title">Turnkey or Hourly Choice</div>
-        <div class="term-body">Available as turnkey fixed-price ($2,204.00) or weekly hourly engagement ($38.00/hr, 15–20 hrs/week).</div>
+        <div class="term-title">Engagement Flexibility</div>
+        <div class="term-body">Available at Flagship $80.00/hr, Value $55.00/hr, or Entry $38.00/hr via hourly or milestone escrow.</div>
       </div>
       <div class="term-col">
         <div class="term-title">30-Day Hypercare Warranty</div>
@@ -599,18 +607,18 @@ def build_estimate():
         </div>
         <div class="auth-labels">
           <span class="auth-label">Authorized Provider Signature • Shakil Ahmed, Founder</span>
-          <span class="auth-label" style="width: 80px; text-align: center;">Date</span>
+          <span class="auth-label" style="width: 75px; text-align: center;">Date</span>
         </div>
       </div>
       <div class="auth-party">
         <div class="auth-party-title">Authorized Client: Australian Finance &amp; Accounting Firm</div>
         <div class="auth-sign-line">
-          <div class="auth-sign-field" style="color: #64748b; font-family: inherit; font-size: 8px; font-style: italic;">[ Accepted via Upwork Contract Offer / Milestone #1 ]</div>
+          <div class="auth-sign-field" style="color: #64748b; font-family: inherit; font-size: 7.8px; font-style: italic;">[ Accepted via Upwork Contract Offer / Milestone #1 ]</div>
           <div class="auth-date-field">___ / ___ / 2026</div>
         </div>
         <div class="auth-labels">
           <span class="auth-label">Authorized Client Signature</span>
-          <span class="auth-label" style="width: 80px; text-align: center;">Date</span>
+          <span class="auth-label" style="width: 75px; text-align: center;">Date</span>
         </div>
       </div>
     </div>
