@@ -26,6 +26,7 @@ import { RoiCostCalculator } from "@/components/RoiCostCalculator";
 import { BlueprintExporter } from "@/components/BlueprintExporter";
 import { BrokerDocketDrawer } from "@/components/BrokerDocketDrawer";
 import { ChaosSimulatorModal } from "@/components/ChaosSimulatorModal";
+import { AiGovernanceModal } from "@/components/AiGovernanceModal";
 import { BorrowerProfile } from "@/lib/rasa-dialogue";
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
   >("chat");
 
   const [chaosModalOpen, setChaosModalOpen] = useState(false);
+  const [governanceModalOpen, setGovernanceModalOpen] = useState(false);
   const [latestBooking, setLatestBooking] = useState<any>(null);
 
   // Handle tour path selection
@@ -60,7 +62,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--color-canvas)] text-[var(--color-text-primary)]">
       {/* 1. Global Navigation Header */}
-      <Header onOpenChaos={() => setChaosModalOpen(true)} />
+      <Header onOpenChaos={() => setChaosModalOpen(true)} onOpenGovernance={() => setGovernanceModalOpen(true)} />
 
       <main className="flex-1 space-y-4 sm:space-y-6 pb-12">
         {/* 2. Executive Briefing & Evaluation Cockpit */}
@@ -183,6 +185,12 @@ export default function Home() {
       <ChaosSimulatorModal
         isOpen={chaosModalOpen}
         onClose={() => setChaosModalOpen(false)}
+      />
+
+      {/* AI Security & Governance Console Modal */}
+      <AiGovernanceModal
+        isOpen={governanceModalOpen}
+        onClose={() => setGovernanceModalOpen(false)}
       />
     </div>
   );

@@ -15,9 +15,10 @@ import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   onOpenChaos?: () => void;
+  onOpenGovernance?: () => void;
 }
 
-export function Header({ onOpenChaos }: HeaderProps) {
+export function Header({ onOpenChaos, onOpenGovernance }: HeaderProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [healthStatus, setHealthStatus] = useState<string>("OPERATIONAL");
 
@@ -73,6 +74,18 @@ export function Header({ onOpenChaos }: HeaderProps) {
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
               <span className="hidden sm:inline">{healthStatus}</span>
             </div>
+
+            {/* AI Governance Trigger */}
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={onOpenGovernance}
+              className="h-8 text-xs font-semibold border-emerald-300 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-100 flex items-center gap-1.5"
+              title="AI Security & Governance Console"
+            >
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+              <span className="hidden sm:inline">AI Governance</span>
+            </Button>
 
             {/* Chaos Simulator Trigger */}
             <Button
