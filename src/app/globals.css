@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-canvas: #f8fafc;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f1f5f9;
+    --color-panel: #ffffff;
+    --color-panel-subtle: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-border-subtle: #edf2f7;
+    --color-border-focus: #0284c7;
+
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #334155;
+    --color-text-muted: #64748b;
+
+    /* Australian Finance & Mortgage Brokerage Brand */
+    --color-brand: #0f172a;
+    --color-brand-accent: #0284c7;
+    --color-brand-blue: #0369a1;
+    --color-brand-emerald: #059669;
+
+    /* Status Indicators */
+    --color-status-green: #059669;
+    --color-status-green-bg: #ecfdf5;
+    --color-status-green-border: #a7f3d0;
+
+    --color-status-blue: #0284c7;
+    --color-status-blue-bg: #f0f9ff;
+    --color-status-blue-border: #bae6fd;
+
+    --color-status-amber: #d97706;
+    --color-status-amber-bg: #fffbeb;
+    --color-status-amber-border: #fde68a;
+
+    --color-status-red: #dc2626;
+    --color-status-red-bg: #fef2f2;
+    --color-status-red-border: #fecaca;
+
+    --color-status-purple: #7c3aed;
+    --color-status-purple-bg: #f5f3ff;
+    --color-status-purple-border: #ddd6fe;
+
+    --color-status-slate: #64748b;
+    --color-status-slate-bg: #f8fafc;
+    --color-status-slate-border: #cbd5e1;
+  }
+
+  .dark {
+    --color-canvas: #090d16;
+    --color-surface: #0f172a;
+    --color-surface-hover: #1e293b;
+    --color-panel: #0f172a;
+    --color-panel-subtle: #141e33;
+    --color-border: #1e293b;
+    --color-border-subtle: #162032;
+    --color-border-focus: #38bdf8;
+
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+
+    --color-brand: #38bdf8;
+    --color-brand-accent: #0284c7;
+    --color-brand-blue: #38bdf8;
+    --color-brand-emerald: #10b981;
+
+    --color-status-green: #10b981;
+    --color-status-green-bg: rgba(16, 185, 129, 0.12);
+    --color-status-green-border: rgba(16, 185, 129, 0.3);
+
+    --color-status-blue: #38bdf8;
+    --color-status-blue-bg: rgba(56, 189, 248, 0.12);
+    --color-status-blue-border: rgba(56, 189, 248, 0.3);
+
+    --color-status-amber: #f59e0b;
+    --color-status-amber-bg: rgba(245, 158, 11, 0.12);
+    --color-status-amber-border: rgba(245, 158, 11, 0.3);
+
+    --color-status-red: #ef4444;
+    --color-status-red-bg: rgba(239, 68, 68, 0.12);
+    --color-status-red-border: rgba(239, 68, 68, 0.3);
+
+    --color-status-purple: #a855f7;
+    --color-status-purple-bg: rgba(168, 85, 247, 0.12);
+    --color-status-purple-border: rgba(168, 85, 247, 0.3);
+
+    --color-status-slate: #94a3b8;
+    --color-status-slate-bg: rgba(148, 163, 184, 0.1);
+    --color-status-slate-border: rgba(148, 163, 184, 0.25);
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
