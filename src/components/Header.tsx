@@ -43,7 +43,7 @@ export function Header({ onOpenChaos }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between gap-4">
           
           {/* Brand Logo & Tag */}

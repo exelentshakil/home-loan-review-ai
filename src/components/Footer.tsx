@@ -6,7 +6,7 @@ import { ShieldCheck, ExternalLink, GitBranch, Terminal } from "lucide-react";
 export function Footer() {
   return (
     <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-8 mt-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
+      <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-8 space-y-6">
         
         {/* ASIC & Regulatory Disclaimer */}
         <div className="p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-subtle)] text-xs text-[var(--color-text-muted)] space-y-2">

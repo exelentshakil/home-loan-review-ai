@@ -87,7 +87,7 @@ export function ReviewerTour({
 
   return (
     <section className="w-full py-2 sm:py-3 border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-8">
         {/* Top Value Banner */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-[var(--color-border-subtle)]">
           <div className="min-w-0 flex-1">

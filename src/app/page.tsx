@@ -69,91 +69,93 @@ export default function Home() {
         {/* 3. High-Density Bento Metrics */}
         <BentoKpiGrid />
 
-        {/* 4. Operational Cockpit Tabs */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Tab Navigation Pill Bar */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-200/70 dark:bg-slate-900 border border-[var(--color-border)] overflow-x-auto mb-4">
-            <button
-              onClick={() => setActiveTab("chat")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "chat"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <MessageSquare className="h-3.5 w-3.5 text-sky-600" />
-              <span>Rasa Chat Simulator</span>
-            </button>
+        {/* 4. Operational Cockpit Tabs & Content */}
+        <div className="mx-auto max-w-[1560px] px-4 sm:px-6 lg:px-8">
+          {/* Sticky Tab Navigation Bar (Never clips when scrolling) */}
+          <div className="sticky top-14 z-30 bg-[var(--color-canvas)]/95 backdrop-blur-md pt-2 pb-3 mb-4">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-200/70 dark:bg-slate-900 border border-[var(--color-border)] overflow-x-auto shadow-xs">
+              <button
+                onClick={() => setActiveTab("chat")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "chat"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <MessageSquare className="h-3.5 w-3.5 text-sky-600" />
+                <span>Rasa Chat Simulator</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("cohort")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "cohort"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <Users className="h-3.5 w-3.5 text-indigo-600" />
-              <span>Client Cohort (68 Borrowers)</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("cohort")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "cohort"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <Users className="h-3.5 w-3.5 text-indigo-600" />
+                <span>Client Cohort (68 Borrowers)</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("workflow")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "workflow"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <Workflow className="h-3.5 w-3.5 text-sky-600" />
-              <span>Workflow DAG (5 Stages)</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("workflow")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "workflow"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <Workflow className="h-3.5 w-3.5 text-sky-600" />
+                <span>Workflow DAG (5 Stages)</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("calculator")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "calculator"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <Calculator className="h-3.5 w-3.5 text-emerald-600" />
-              <span>Rate Delta Workbench</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("calculator")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "calculator"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <Calculator className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Rate Delta Workbench</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("roi")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "roi"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <TrendingUp className="h-3.5 w-3.5 text-emerald-600" />
-              <span>Trail ROI Model</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("roi")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "roi"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <TrendingUp className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Trail ROI Model</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("blueprint")}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                activeTab === "blueprint"
-                  ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              <Code className="h-3.5 w-3.5 text-slate-600" />
-              <span>Blueprints & Schema</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("blueprint")}
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  activeTab === "blueprint"
+                    ? "bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-xs"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
+              >
+                <Code className="h-3.5 w-3.5 text-slate-600" />
+                <span>Blueprints & Schema</span>
+              </button>
+            </div>
           </div>
 
           {/* Active Tab Views */}
           <div className="space-y-6">
             {activeTab === "chat" && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-                <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 xl:grid-cols-12 gap-5 items-start">
+                <div className="xl:col-span-7">
                   <ChatSimulator onBookingComplete={handleBookingComplete} />
                 </div>
-                <div className="lg:col-span-4">
+                <div className="xl:col-span-5">
                   <BrokerDocketDrawer bookingData={latestBooking} />
                 </div>
               </div>
