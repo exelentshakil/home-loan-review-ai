@@ -35,21 +35,29 @@ export async function processChatTurn(
 ): Promise<AiChatResponse> {
   const startTime = Date.now();
 
+  const clientName = borrower?.name || "Client";
+  const lender = borrower?.currentLender || "Commonwealth Bank";
+  const balance = borrower?.estimatedBalance || borrower?.currentBalance || 750000;
+  const originalLoan = borrower?.originalLoanAmount || balance;
+  const propertyVal = borrower?.propertyValue || Math.round(balance / 0.75);
+  const currentRate = borrower?.currentRate || borrower?.currentRatePct || 6.25;
+  const loanType = borrower?.loanType || "Owner Occupied P&I";
+
   const prompt = `You are a professional, licensed Australian Mortgage Broker Assistant named Shaun (representing a leading Australian finance & mortgage advisory firm).
 You are conducting a friendly, compliant Annual Home Loan Review with an existing client to prevent borrower churn and check if they can save money or restructure their home loan.
 
 Borrower Context:
-- Client Name: ${borrower.name}
-- Current Lender: ${borrower.currentLender}
-- Original Loan: $${borrower.originalLoanAmount.toLocaleString()}
-- Estimated Current Balance: $${borrower.estimatedBalance.toLocaleString()}
-- Estimated Property Value: $${borrower.propertyValue.toLocaleString()}
-- Current Rate on File: ${borrower.currentRate}%
-- Loan Type: ${borrower.loanType}
+- Client Name: ${clientName}
+- Current Lender: ${lender}
+- Original Loan: $${originalLoan.toLocaleString()}
+- Estimated Current Balance: $${balance.toLocaleString()}
+- Estimated Property Value: $${propertyVal.toLocaleString()}
+- Current Rate on File: ${currentRate}%
+- Loan Type: ${loanType}
 - Current Dialogue State: ${currentState}
 
 Recent Conversation History:
-${history.slice(-4).map((h) => `${h.sender.toUpperCase()}: ${h.text}`).join("\n")}
+${(Array.isArray(history) ? history : []).slice(-4).map((h) => `${h.sender.toUpperCase()}: ${h.text}`).join("\n")}
 
 User Just Said:
 "${userMessage}"
@@ -67,9 +75,9 @@ Return ONLY valid raw JSON with this exact schema:
   "intent": "identified_intent_name",
   "confidence": 0.96,
   "extractedSlots": {
-    "loanBalance": 810000,
-    "currentRate": 6.44,
-    "propertyValue": 1250000,
+    "loanBalance": ${balance},
+    "currentRate": ${currentRate},
+    "propertyValue": ${propertyVal},
     "goal": "lower_repayments_or_equity"
   },
   "dialogueState": "NEXT_DIALOGUE_STATE_STRING",
@@ -108,9 +116,9 @@ Return ONLY valid raw JSON with this exact schema:
           const parsed = JSON.parse(content);
           const calc = shouldRunCalculation(parsed.dialogueState, parsed.intent)
             ? performAnnualReview(
-                parsed.extractedSlots?.loanBalance || borrower.estimatedBalance,
-                parsed.extractedSlots?.propertyValue || borrower.propertyValue,
-                parsed.extractedSlots?.currentRate || borrower.currentRate
+                parsed.extractedSlots?.loanBalance || balance,
+                parsed.extractedSlots?.propertyValue || propertyVal,
+                parsed.extractedSlots?.currentRate || currentRate
               )
             : undefined;
 
@@ -154,9 +162,9 @@ Return ONLY valid raw JSON with this exact schema:
           const parsed = JSON.parse(text);
           const calc = shouldRunCalculation(parsed.dialogueState, parsed.intent)
             ? performAnnualReview(
-                parsed.extractedSlots?.loanBalance || borrower.estimatedBalance,
-                parsed.extractedSlots?.propertyValue || borrower.propertyValue,
-                parsed.extractedSlots?.currentRate || borrower.currentRate
+                parsed.extractedSlots?.loanBalance || balance,
+                parsed.extractedSlots?.propertyValue || propertyVal,
+                parsed.extractedSlots?.currentRate || currentRate
               )
             : undefined;
 
@@ -195,25 +203,25 @@ function generateDeterministicDialogueResponse(
   currentState: DialogueState,
   elapsedMs: number
 ): AiChatResponse {
-  const lower = userMsg.toLowerCase();
-  const calc = performAnnualReview(borrower.estimatedBalance, borrower.propertyValue, borrower.currentRate);
+  const lower = (userMsg || "").toLowerCase();
+  const balance = borrower?.estimatedBalance || borrower?.currentBalance || 750000;
+  const propVal = borrower?.propertyValue || Math.round(balance / 0.75);
+  const rate = borrower?.currentRate || borrower?.currentRatePct || 6.25;
+  const lender = borrower?.currentLender || "Commonwealth Bank";
+  const phone = borrower?.phone || "your mobile";
+
+  const calc = performAnnualReview(balance, propVal, rate);
 
   // Intent classification & slot extraction heuristics
-  if (lower.includes("yes") || lower.includes("check") || lower.includes("savings") || lower.includes("rate")) {
+  if (lower.includes("yes") || lower.includes("check") || lower.includes("savings") || lower.includes("rate") || lower.includes("compare")) {
     return {
-      reply: `Great news! Based on your estimated $${borrower.estimatedBalance.toLocaleString()} loan balance with ${
-        borrower.currentLender
-      } at ${borrower.currentRate}%, current tier-1 market rates sit around ${calc.recommendedRate}% with ${
-        calc.recommendedLender
-      }. That represents approximately A$${calc.monthlySavings.toLocaleString()}/month in interest savings (A$${calc.annualSavings.toLocaleString()}/year). Plus, your estimated LVR is healthy at ${
-        calc.currentLvr
-      }%, with approx A$${calc.equityAvailable80Pct.toLocaleString()} in usable equity.`,
+      reply: `Great news! Based on your estimated A$${balance.toLocaleString()} loan balance with ${lender} at ${rate}%, current tier-1 market rates sit around ${calc.recommendedRate}% with ${calc.recommendedLender}. That represents approximately A$${calc.monthlySavings.toLocaleString()}/month in interest savings (A$${calc.annualSavings.toLocaleString()}/year). Plus, your estimated LVR is healthy at ${calc.currentLvr}%, with approx A$${calc.equityAvailable80Pct.toLocaleString()} in usable equity.`,
       intent: "inquire_rate_and_savings",
       confidence: 0.98,
       extractedSlots: {
-        loanBalance: borrower.estimatedBalance,
-        currentRate: borrower.currentRate,
-        propertyValue: borrower.propertyValue,
+        loanBalance: balance,
+        currentRate: rate,
+        propertyValue: propVal,
       },
       dialogueState: "PRESENTING_SAVINGS",
       suggestedQuickReplies: [
@@ -261,7 +269,7 @@ function generateDeterministicDialogueResponse(
       : "Thursday at 4:15 PM AEST";
 
     return {
-      reply: `Locked in! You're confirmed for ${chosenSlot} with Shaun. A calendar invitation and SMS confirmation have been dispatched to ${borrower.phone}. We've pre-populated your Annual Review Docket for our broker CRM. Looking forward to speaking with you!`,
+      reply: `Locked in! You're confirmed for ${chosenSlot} with Shaun. A calendar invitation and SMS confirmation have been dispatched to ${phone}. We've pre-populated your Annual Review Docket for our broker CRM. Looking forward to speaking with you!`,
       intent: "select_slot_confirm",
       confidence: 0.99,
       extractedSlots: {
@@ -283,7 +291,7 @@ function generateDeterministicDialogueResponse(
 
   if (lower.includes("equity") || lower.includes("reno") || lower.includes("cash")) {
     return {
-      reply: `With your property currently appraised at approx $${borrower.propertyValue.toLocaleString()} and your loan balance at $${borrower.estimatedBalance.toLocaleString()} (LVR ${calc.currentLvr}%), you have approximately A$${calc.equityAvailable80Pct.toLocaleString()} in usable equity up to an 80% LVR without incurring Lenders Mortgage Insurance (LMI). This can be structured as an equity redraw or cash-out for renovations or investing.`,
+      reply: `With your property currently appraised at approx A$${propVal.toLocaleString()} and your loan balance at A$${balance.toLocaleString()} (LVR ${calc.currentLvr}%), you have approximately A$${calc.equityAvailable80Pct.toLocaleString()} in usable equity up to an 80% LVR without incurring Lenders Mortgage Insurance (LMI). This can be structured as an equity redraw or cash-out for renovations or investing.`,
       intent: "inquire_equity_release",
       confidence: 0.95,
       extractedSlots: {
@@ -305,7 +313,7 @@ function generateDeterministicDialogueResponse(
 
   // Default fallback
   return {
-    reply: `I understand! Our annual review is purely factual to ensure you're in the best position. We can check your current interest rate, see how much you could save if we ask ${borrower.currentLender} for an immediate retention discount, or schedule a quick 15-minute chat at your convenience.`,
+    reply: `I understand! Our annual review is purely factual to ensure you're in the best position. We can check your current interest rate, see how much you could save if we ask ${lender} for an immediate retention discount, or schedule a quick 15-minute chat at your convenience.`,
     intent: "general_inquiry_fallback",
     confidence: 0.88,
     extractedSlots: {},
