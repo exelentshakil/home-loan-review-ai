@@ -45,7 +45,7 @@ export function BrokerDocketDrawer({ bookingData, onClose }: BrokerDocketDrawerP
     event: "broker.annual_review.booked",
     source: "rasa_conversational_engine",
     compliance: "ASIC_RG_273_BID",
-    timestamp: new Date().toISOString(),
+    timestamp: "2026-09-15T09:15:00.000Z",
     client: {
       name: clientName,
       phone: clientPhone,
